@@ -109,80 +109,56 @@ a:hover {
     width: 100px; /* Ajusta este tamaño según tus necesidades */
 }
 
-/*Estilo del calendario*/
 #calendar-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 #calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: #0078D4;
-    color: #ffffff;
-    border-radius: 8px 8px 0 0;
 }
 
-#calendar-days,
-#calendar-dates {
+#calendar-header h2 {
+    margin: 0;
+    padding: 10px;
+}
+
+#calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    text-align: center;
+    background-color: #eee;
     padding: 10px;
 }
 
 #calendar-days div {
     font-weight: bold;
-    padding-bottom: 10px;
+    padding: 5px;
+}
+
+#calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #fff;
+    padding: 10px;
 }
 
 #calendar-dates div {
     padding: 10px;
+    border: 1px solid #ccc;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 #calendar-dates div:hover {
-    background-color: #e6f7ff;
+    background-color: #f0f0f0;
 }
 
-#calendar-dates div.disabled {
-    color: #b3b3b3;
-    pointer-events: none;
-}
-
-#calendar-dates div.selected-date {
-    background-color: #0078D4;
-    color: #ffffff;
-    border-radius: 50%;
-}
-
-button {
-    background-color: #0078D4;
+.selected-date {
+    background-color: #007bff;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-button:hover {
-    background-color: #005a9e;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
 /* Desactivar días no seleccionables */
