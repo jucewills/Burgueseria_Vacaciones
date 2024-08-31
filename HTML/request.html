@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Solicitud de Vacaciones</title>
+    <link rel="stylesheet" href="/Styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="/img/logo.png" alt="Logo de La Burguesería" class="logo">
+        <h1>Nueva Solicitud de Vacaciones</h1>
+
+        <form id="vacation-form">
+            <label for="vacation-days">Días de vacaciones disponibles:</label>
+            <input type="text" id="vacation-days" name="vacation-days" readonly value="15"> <!-- Ajusta el valor según corresponda -->
+
+            <label for="start">Fecha de inicio:</label>
+            <input type="text" id="start" name="start" readonly>
+
+            <label for="end">Fecha de fin:</label>
+            <input type="text" id="end" name="end" readonly>
+
+            <label for="return">Fecha de regreso:</label>
+            <input type="text" id="return" name="return" readonly>
+
+            <div id="calendar-container">
+                <div id="calendar-header">
+                    <button id="prev">&lt;</button>
+                    <h2 id="monthYear"></h2>
+                    <button id="next">&gt;</button>
+                </div>
+                <div id="calendar-days"></div>
+                <div id="calendar-dates"></div>
+            </div>
+
+            <button type="submit" class="button">Enviar Solicitud</button>
+        </form>
+
+        <div id="request-summary"></div>
+
+        <a href="/HTML/main.html" class="button">Volver</a>
+    </div>
+
+    <script src="/Scripts/calendar.js"></script>
+    <script src="/Scripts/request.js"></script>
+</body>
+</html>

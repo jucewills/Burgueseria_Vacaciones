@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla Principal</title>
+    <link rel="stylesheet" href="/Styles/styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <img src="/img/logo.png" alt="Logo de La Burguesería" class="logo">
+        <h1>Bienvenido, Usuario</h1>
+        <div class="summary">
+            <p>Vacaciones Pasadas: 5</p>
+            <p>Vacaciones Actuales: 2</p>
+            <p>Vacaciones Pendientes: 1</p>
+        </div>
+        <div class="actions">
+            <a href="/HTML/request.html" class="button">Nueva Solicitud</a>
+            <a href="/HTML/profile.html" class="button">Perfil</a>
+            <a href="#" id="logoutButton" class="button">Cerrar Sesión</a> <!-- Botón de cierre de sesión -->
+        </div>
+    </div>
+
+    <script src="/Scripts/auth.js"></script> <!-- Verificación de autenticación -->
+    <script src="/Scripts/logout.js"></script> <!-- Funcionalidad de cierre de sesión -->
+</body>
+</html>

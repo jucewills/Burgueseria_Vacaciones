@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="/Styles/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <img src="/img/logo.png" alt="Logo de La Burguesería" class="logo">
+        <h1>Iniciar Sesión</h1>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Aquí deberías validar las credenciales con el backend
+            if (username === 'julio.wilches' && password === 'julio.wilches') {
+                // Simula la autenticación guardando un token en localStorage
+                localStorage.setItem('authToken', 'userAuthToken');
+
+                // Redirige a la página principal
+                window.location.href = '/HTML/main.html';
+            } else {
+                alert('Usuario o contraseña incorrectos');
+            }
+        });
+    </script>
+</body>
+</html>
