@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentDate = new Date();
     let selectedStartDate = null;
     let selectedEndDate = null;
-    let totalVacationDays = parseInt(vacationDaysInput.value); // Obtener el valor de los días de vacaciones disponibles
+    let totalVacationDays = parseInt(vacationDaysInput.value);
 
     function renderCalendar() {
         calendarDays.innerHTML = '';
@@ -32,11 +32,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const firstDayOfMonth = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-        for (let i = 0; i < firstDayOfMonth; i++) {
-            const emptyCell = document.createElement('div');
-            calendarDates.appendChild(emptyCell);
+        // Agregar los días del mes anterior
+        const prevMonthDays = new Date(year, month, 0).getDate();
+        const daysToShowFromPrevMonth = (firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1);
+
+        for (let i = daysToShowFromPrevMonth; i > 0; i--) {
+            const dayElement = document.createElement('div');
+            dayElement.innerText = prevMonthDays - i + 1;
+            dayElement.classList.add('disabled');
+            calendarDates.appendChild(dayElement);
         }
 
+        // Días del mes actual
         for (let day = 1; day <= daysInMonth; day++) {
             const dayElement = document.createElement('div');
             dayElement.innerText = day;
@@ -44,12 +51,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const dayOfWeek = date.getDay();
 
             // Hacer que Sábados y Domingos no sean seleccionables
-            if (dayOfWeek === 0 || dayOfWeek === 6) {
+            if (dayOfWeek === 0 || dayOfWeek === 6) { // 0 es Domingo y 6 es Sábado
                 dayElement.classList.add('disabled');
             } else {
                 dayElement.addEventListener('click', () => handleDateClick(day));
             }
 
+            calendarDates.appendChild(dayElement);
+        }
+
+        // Agregar los días del mes siguiente
+        const nextDaysToShow = 42 - calendarDates.children.length;
+
+        for (let i = 1; i <= nextDaysToShow; i++) {
+            const dayElement = document.createElement('div');
+            dayElement.innerText = i;
+            dayElement.classList.add('disabled');
             calendarDates.appendChild(dayElement);
         }
 
